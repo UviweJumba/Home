@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theo Ashford — Mathematician &amp; Computer Scientist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500;1,9..144,600&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --midnight:      #040309;
+    --midnight-panel:rgba(22,15,48,0.46);
+    --midnight-3:    rgba(31,20,66,0.55);
+    --nebula-violet: #2a1760;
+    --nebula-blue:   #131b52;
+    --ivory:         #f4efe2;
+    --ivory-dim:     #c9c2ac;
+    --ivory-faint:   #8f8a7c;
+    --gold:          #b9904f;
+    --gold-bright:   #dcb478;
+    --line:          rgba(244,239,226,0.13);
+    --line-bright:   rgba(217,180,120,0.45);
+    --font-display:  'Fraunces', serif;
+    --font-body:     'STIX Two Text', serif;
+    --font-mono:     'JetBrains Mono', monospace;
+    --max: 1180px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
+
+  body{
+    margin:0;
+    background:var(--midnight);
+    color:var(--ivory);
+    font-family:var(--font-body);
+    font-size:17px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- shared texture: faint graph-paper wash on section backgrounds ---------- */
+  .ruled{
+    position:relative;
+  }
+  .ruled::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(rgba(244,239,226,0.028) 0 1px, transparent 1px 84px),
+      repeating-linear-gradient(90deg, rgba(244,239,226,0.028) 0 1px, transparent 1px 84px);
+    pointer-events:none;
+  }
+
+  a{ color:inherit; }
+
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 32px; }
+
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--gold-bright);
+  }
+
+  .rule{
+    height:1px;
+    background:linear-gradient(90deg, var(--line-bright), transparent 70%);
+    border:0;
+    margin:20px 0 0;
+  }
+  .rule.center{
+    background:linear-gradient(90deg, transparent, var(--line-bright) 50%, transparent);
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(12,9,33,0.72);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--max); margin:0 auto; padding:16px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .sigil{
+    display:flex; align-items:center; gap:12px;
+    font-family:var(--font-mono);
+    font-size:13px; letter-spacing:0.14em;
+    text-decoration:none; color:var(--ivory);
+  }
+  .sigil-ring{
+    width:34px; height:34px; border-radius:50%;
+    border:1px solid var(--gold-bright);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-display); font-style:italic; font-weight:600;
+    font-size:14px; color:var(--gold-bright);
+    flex-shrink:0;
+  }
+  .nav-links{
+    display:flex; gap:28px; list-style:none; margin:0; padding:0;
+    font-family:var(--font-mono); font-size:11.5px; letter-spacing:0.14em; text-transform:uppercase;
+  }
+  .nav-links a{ text-decoration:none; color:var(--ivory-dim); position:relative; padding-bottom:3px; transition:color .25s ease; }
+  .nav-links a:hover{ color:var(--gold-bright); }
+  .nav-links a span{ color:var(--gold); margin-right:6px; }
+  @media (max-width:820px){
+    .nav-links{ display:none; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex; flex-direction:column; justify-content:center;
+    overflow:hidden;
+    padding-top:70px;
+  }
+  .hero-sky{ position:absolute; inset:0; width:100%; height:100%; }
+  .hero-sky svg{ width:100%; height:100%; display:block; }
+  .star{ fill:var(--ivory); animation:twinkle 5s ease-in-out infinite; }
+  .star.bright{ fill:var(--gold-bright); }
+  @keyframes twinkle{
+    0%,100%{ opacity:0.25; }
+    50%{ opacity:1; }
+  }
+  .edge{ stroke:rgba(244,239,226,0.16); stroke-width:1; }
+
+  .hero-veil{
+    position:absolute; inset:0;
+    background:radial-gradient(ellipse at 30% 45%, rgba(12,9,33,0.15) 0%, rgba(12,9,33,0.88) 62%, var(--midnight) 100%);
+  }
+
+  .hero-content{
+    position:relative; z-index:2;
+    max-width:var(--max); margin:0 auto; padding:0 32px;
+    width:100%;
+  }
+  .hero-content .eyebrow{ margin-bottom:22px; }
+  .hero-content h1{
+    font-family:var(--font-display);
+    font-weight:900;
+    font-size:clamp(52px, 10vw, 128px);
+    line-height:0.94;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .hero-content h1 em{
+    font-style:italic;
+    font-weight:500;
+    color:var(--gold-bright);
+    display:block;
+    font-size:0.62em;
+    margin-top:6px;
+  }
+  .hero-thesis{
+    font-family:var(--font-body);
+    font-style:italic;
+    font-size:clamp(18px, 2.4vw, 24px);
+    color:var(--ivory-dim);
+    max-width:560px;
+    margin:26px 0 0;
+    line-height:1.5;
+  }
+  .hero-tags{
+    margin-top:30px;
+    font-family:var(--font-mono);
+    font-size:12px; letter-spacing:0.16em; text-transform:uppercase;
+    color:var(--ivory-faint);
+  }
+  .hero-tags span{ color:var(--gold); margin:0 10px; }
+
+  .scroll-cue{
+    position:absolute; bottom:38px; left:32px; z-index:2;
+    font-family:var(--font-mono); font-size:12px; letter-spacing:0.1em;
+    color:var(--ivory-faint);
+    display:flex; align-items:center; gap:8px;
+  }
+  .scroll-cue .arrow{ animation:bob 2.2s ease-in-out infinite; color:var(--gold-bright); }
+  @keyframes bob{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(6px);} }
+
+  /* ---------- generic section scaffolding ---------- */
+  section{ position:relative; padding:130px 0; }
+  section.tight{ padding:110px 0; }
+  .section-head{ margin-bottom:64px; }
+  .section-head h2{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-style:italic;
+    font-size:clamp(34px, 5vw, 56px);
+    margin:14px 0 0;
+    color:var(--ivory);
+  }
+  .section-head .roman{
+    color:var(--gold);
+    font-style:normal;
+    font-weight:500;
+    margin-right:14px;
+  }
+
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- EXORDIUM ---------- */
+  #exordium{ background:var(--midnight); }
+  .exordium-grid{
+    display:grid; grid-template-columns:1.6fr 1fr; gap:80px;
+    align-items:start;
+  }
+  .drop{
+    font-family:var(--font-display);
+    font-style:italic; font-weight:700;
+    float:left;
+    font-size:96px;
+    line-height:0.78;
+    padding:8px 12px 0 0;
+    color:var(--gold-bright);
+  }
+  .exordium-copy p{
+    font-size:18.5px;
+    color:var(--ivory-dim);
+    margin:0 0 22px;
+  }
+  .exordium-copy p.incipit{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:22px;
+    color:var(--ivory);
+    line-height:1.55;
+  }
+  .exordium-copy p.incipit::after{
+    content:"";
+    display:block;
+  }
+  .verses{
+    border-left:1px solid var(--line);
+    padding-left:28px;
+  }
+  .verse{
+    display:grid; grid-template-columns:44px 1fr; gap:14px;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .verse:first-child{ padding-top:0; }
+  .verse:last-child{ border-bottom:0; }
+  .verse .vnum{
+    font-family:var(--font-mono); font-size:12px; color:var(--gold);
+    padding-top:3px;
+  }
+  .verse .vtext .label{
+    display:block; font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--ivory-faint); margin-bottom:4px;
+  }
+  .verse .vtext .val{ font-size:15.5px; color:var(--ivory); }
+
+  @media (max-width:900px){
+    .exordium-grid{ grid-template-columns:1fr; gap:48px; }
+  }
+
+  /* ---------- THEOREMS ---------- */
+  #theorems{ background:var(--midnight-panel); }
+  .theorem{
+    border:1px solid var(--line);
+    padding:40px 44px;
+    margin-bottom:28px;
+    position:relative;
+    background:linear-gradient(180deg, rgba(244,239,226,0.02), transparent 40%);
+  }
+  .theorem::before{
+    content:"";
+    position:absolute; top:0; left:0; width:3px; height:100%;
+    background:var(--gold);
+    opacity:0.55;
+  }
+  .theorem-head{
+    display:flex; justify-content:space-between; align-items:baseline; gap:20px; flex-wrap:wrap;
+    margin-bottom:16px;
+  }
+  .theorem-head h3{
+    font-family:var(--font-body);
+    font-style:italic; font-weight:600;
+    font-size:22px; margin:0;
+    color:var(--ivory);
+  }
+  .theorem-head h3 .tnum{
+    font-family:var(--font-mono); font-style:normal; font-weight:500;
+    color:var(--gold-bright); margin-right:12px; font-size:16px;
+  }
+  .theorem-venue{
+    font-family:var(--font-mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--ivory-faint); white-space:nowrap;
+  }
+  .theorem p{ color:var(--ivory-dim); margin:0 0 18px; font-size:16.5px; }
+  .theorem-foot{
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .theorem-tags{ display:flex; gap:10px; flex-wrap:wrap; }
+  .theorem-tags span{
+    font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.06em;
+    border:1px solid var(--line); padding:4px 10px; color:var(--ivory-faint);
+  }
+  .qed{ font-size:15px; color:var(--gold-bright); }
+  .theorem-link{
+    font-family:var(--font-mono); font-size:12px; text-decoration:none; color:var(--gold-bright);
+    border-bottom:1px solid transparent; padding-bottom:2px; transition:border-color .2s ease;
+  }
+  .theorem-link:hover{ border-color:var(--gold-bright); }
+
+  /* ---------- ARTIFACTS ---------- */
+  #artifacts{ background:var(--midnight); }
+  .artifact-grid{
+    display:grid; grid-template-columns:repeat(2, 1fr); gap:36px;
+  }
+  @media (max-width:820px){ .artifact-grid{ grid-template-columns:1fr; } }
+
+  .artifact{
+    border:1px solid var(--line);
+    background:var(--midnight-panel);
+    display:flex; flex-direction:column;
+    transition:border-color .3s ease, transform .3s ease;
+  }
+  .artifact:hover{ border-color:var(--line-bright); transform:translateY(-4px); }
+  .artifact-cover{
+    height:180px;
+    position:relative;
+    border-bottom:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(217,180,120,0.10), transparent 60%),
+      linear-gradient(160deg, var(--midnight-3), var(--midnight-panel));
+    overflow:hidden;
+  }
+  .artifact-cover svg{ width:100%; height:100%; }
+  .artifact-index{
+    position:absolute; top:14px; left:16px;
+    font-family:var(--font-mono); font-size:11px; letter-spacing:0.1em;
+    color:var(--gold-bright);
+  }
+  .artifact-body{ padding:28px 30px 30px; display:flex; flex-direction:column; flex:1; }
+  .artifact-body h3{
+    font-family:var(--font-display); font-weight:700; text-transform:uppercase;
+    letter-spacing:0.03em; font-size:22px; margin:0 0 4px;
+  }
+  .artifact-sub{
+    font-family:var(--font-mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:14px;
+  }
+  .artifact-body p{ color:var(--ivory-dim); font-size:15.5px; margin:0 0 20px; flex:1; }
+  .artifact-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px; }
+  .artifact-tags span{
+    font-family:var(--font-mono); font-size:10px; letter-spacing:0.05em;
+    color:var(--ivory-faint); border:1px solid var(--line); padding:3px 9px;
+  }
+  .artifact-link{
+    font-family:var(--font-mono); font-size:12px; text-decoration:none; color:var(--ivory);
+    display:inline-flex; align-items:center; gap:8px; align-self:flex-start;
+    border-bottom:1px solid var(--gold); padding-bottom:2px;
+  }
+
+  /* ---------- TESTIMONIA ---------- */
+  #testimonia{ background:var(--midnight-panel); }
+  .timeline{ position:relative; padding-left:38px; }
+  .timeline::before{
+    content:""; position:absolute; left:5px; top:6px; bottom:6px; width:1px;
+    background:var(--line-bright);
+  }
+  .tl-item{ position:relative; padding-bottom:38px; }
+  .tl-item:last-child{ padding-bottom:0; }
+  .tl-item::before{
+    content:""; position:absolute; left:-38px; top:5px; width:9px; height:9px; border-radius:50%;
+    background:var(--midnight-panel); border:1px solid var(--gold-bright);
+  }
+  .tl-head{ display:flex; gap:16px; align-items:baseline; flex-wrap:wrap; }
+  .tl-num{ font-family:var(--font-mono); font-size:12px; color:var(--gold); }
+  .tl-year{ font-family:var(--font-mono); font-size:13px; color:var(--gold-bright); letter-spacing:0.06em; }
+  .tl-title{ font-family:var(--font-display); font-style:italic; font-weight:600; font-size:19px; color:var(--ivory); }
+  .tl-item p{ margin:8px 0 0; color:var(--ivory-dim); font-size:15px; }
+
+  /* ---------- COLOPHON ---------- */
+  #colophon{
+    background:linear-gradient(180deg, var(--midnight-panel), var(--midnight) 60%);
+    text-align:center;
+    padding-bottom:90px;
+  }
+  #colophon .eyebrow{ justify-content:center; display:flex; }
+  #colophon h2{
+    font-family:var(--font-display); font-weight:800; font-style:italic;
+    font-size:clamp(36px, 6vw, 64px);
+    margin:16px 0 22px;
+  }
+  #colophon .lede{
+    max-width:540px; margin:0 auto 40px;
+    color:var(--ivory-dim); font-size:17px;
+  }
+  .contact-email{
+    font-family:var(--font-mono);
+    font-size:clamp(18px, 3vw, 26px);
+    color:var(--gold-bright);
+    text-decoration:none;
+    border-bottom:1px solid var(--gold);
+    padding-bottom:6px;
+    display:inline-block;
+    margin-bottom:44px;
+  }
+  .colophon-links{
+    display:flex; justify-content:center; gap:30px; flex-wrap:wrap;
+    font-family:var(--font-mono); font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
+    margin-bottom:70px;
+  }
+  .colophon-links a{ text-decoration:none; color:var(--ivory-dim); border-bottom:1px solid transparent; padding-bottom:3px; transition:.2s ease; }
+  .colophon-links a:hover{ color:var(--gold-bright); border-color:var(--gold-bright); }
+
+  .colophon-mark{
+    width:56px; height:56px; margin:0 auto 26px;
+    border:1px solid var(--gold-bright); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-display); font-style:italic; font-weight:600; color:var(--gold-bright);
+  }
+  .colophon-fine{
+    font-family:var(--font-mono); font-size:11.5px; color:var(--ivory-faint);
+    line-height:1.9; max-width:420px; margin:0 auto;
+  }
+
+  ::selection{ background:var(--gold); color:var(--midnight); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="sigil" href="#hero">
+      <span class="sigil-ring">TA</span>
+      THEO ASHFORD
+    </a>
+    <ul class="nav-links">
+      <li><a href="#exordium"><span>I</span>Exordium</a></li>
+      <li><a href="#theorems"><span>II</span>Theorems</a></li>
+      <li><a href="#artifacts"><span>III</span>Artifacts</a></li>
+      <li><a href="#testimonia"><span>IV</span>Testimonia</a></li>
+      <li><a href="#colophon"><span>V</span>Colophon</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="hero">
+  <div class="hero-sky" id="heroSky"></div>
+  <div class="hero-veil"></div>
+  <div class="hero-content">
+    <div class="eyebrow">Collected Works &middot; Volume I</div>
+    <h1>THEO<br>ASHFORD<em>Mathematician &amp; Computer Scientist</em></h1>
+    <p class="hero-thesis">On graphs, proofs, and the machines that learn them — a working record of theorems, artifacts, and the spaces between.</p>
+    <div class="hero-tags">GRAPH THEORY <span>&middot;</span> COMPUTATIONAL GEOMETRY <span>&middot;</span> MACHINE LEARNING THEORY</div>
+  </div>
+  <div class="scroll-cue"><span class="arrow">&#8595;</span> I : 1</div>
+</header>
+
+<!-- ================= I. EXORDIUM ================= -->
+<section id="exordium" class="ruled">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Book I</div>
+      <h2><span class="roman">I.</span>Exordium</h2>
+    </div>
+    <div class="exordium-grid">
+      <div class="exordium-copy reveal">
+        <p class="incipit"><span class="drop">I</span>n the beginning was the proof, and the proof was with logic, and the proof was sound. Without it nothing that compiles was made.</p>
+        <p>Theo Ashford is a mathematician and computer scientist working where graph theory, computational geometry, and machine learning theory meet — the territory where structure has to survive translation: from proof to program, from continuous to discrete, from geometry to code.</p>
+        <p>The work here follows one long-standing question: which properties of a system are the ones that persist no matter how you choose to represent it? Recent efforts have looked for answers in spectral graph methods, in discrete curvature, and in what neural networks keep and discard when they compress the world into weights.</p>
+        <p>Before any of that, there was a proof set badly in a first-year notebook, and a professor who circled it in red — not because it was wrong, but because it could be shorter. That instinct, for the shortest true path between assumption and conclusion, has not gone away since.</p>
+      </div>
+      <div class="verses reveal">
+        <div class="verse">
+          <div class="vnum">1:1</div>
+          <div class="vtext"><span class="label">Field</span><span class="val">Graph Theory &amp; Machine Learning</span></div>
+        </div>
+        <div class="verse">
+          <div class="vnum">1:2</div>
+          <div class="vtext"><span class="label">Position</span><span class="val">Doctoral Fellow, Dept. of Mathematics &amp; Computer Science</span></div>
+        </div>
+        <div class="verse">
+          <div class="vnum">1:3</div>
+          <div class="vtext"><span class="label">Focus</span><span class="val">Spectral methods, computational topology, learning theory</span></div>
+        </div>
+        <div class="verse">
+          <div class="vnum">1:4</div>
+          <div class="vtext"><span class="label">Instruments</span><span class="val">Python, Rust, Lean, LaTeX</span></div>
+        </div>
+        <div class="verse">
+          <div class="vnum">1:5</div>
+          <div class="vtext"><span class="label">Based</span><span class="val">Cambridge, MA</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= II. THEOREMS ================= -->
+<section id="theorems" class="ruled">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Book II &middot; Publications, stated formally</div>
+      <h2><span class="roman">II.</span>Theorems</h2>
+    </div>
+
+    <div class="theorem reveal">
+      <div class="theorem-head">
+        <h3><span class="tnum">2.1</span>On Spectral Bounds for Random Hypergraphs</h3>
+        <div class="theorem-venue">arXiv &middot; 2026</div>
+      </div>
+      <p>We establish tight concentration bounds for the spectral gap of sparse random hypergraphs under a generalized configuration model, extending prior results from graphs to higher-order structures and giving a cleaner route to expansion guarantees used elsewhere in this body of work.</p>
+      <div class="theorem-foot">
+        <div class="theorem-tags"><span>SPECTRAL GRAPH THEORY</span><span>RANDOM STRUCTURES</span></div>
+        <a class="theorem-link" href="#">Read the proof &rarr;</a>
+      </div>
+      <span class="qed" style="position:absolute; bottom:20px; right:24px;">&#8718;</span>
+    </div>
+
+    <div class="theorem reveal">
+      <div class="theorem-head">
+        <h3><span class="tnum">2.2</span>Learning Invariants from Incomplete Data</h3>
+        <div class="theorem-venue">NeurIPS Workshop &middot; 2025</div>
+      </div>
+      <p>A method for recovering approximate symmetry groups from partially observed data, with sample-complexity guarantees. Applied to molecular conformation datasets, the approach recovers known invariances without being told to look for them.</p>
+      <div class="theorem-foot">
+        <div class="theorem-tags"><span>REPRESENTATION LEARNING</span><span>SYMMETRY</span></div>
+        <a class="theorem-link" href="#">Read the proof &rarr;</a>
+      </div>
+      <span class="qed" style="position:absolute; bottom:20px; right:24px;">&#8718;</span>
+    </div>
+
+    <div class="theorem reveal">
+      <div class="theorem-head">
+        <h3><span class="tnum">2.3</span>A Discrete Curvature for Neural Manifolds</h3>
+        <div class="theorem-venue">In submission &middot; 2026</div>
+      </div>
+      <p>We define a Ricci-inspired curvature on the activation graphs of trained networks and show it correlates with generalization gap across three architecture families — a discrete handle on a question usually asked in continuous terms.</p>
+      <div class="theorem-foot">
+        <div class="theorem-tags"><span>GEOMETRIC DEEP LEARNING</span><span>GENERALIZATION</span></div>
+        <a class="theorem-link" href="#">Read the proof &rarr;</a>
+      </div>
+      <span class="qed" style="position:absolute; bottom:20px; right:24px;">&#8718;</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= III. ARTIFACTS ================= -->
+<section id="artifacts" class="ruled">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Book III &middot; Built things</div>
+      <h2><span class="roman">III.</span>Artifacts</h2>
+    </div>
+
+    <div class="artifact-grid">
+
+      <div class="artifact reveal">
+        <div class="artifact-cover">
+          <div class="artifact-index">III : 1</div>
+          <svg viewBox="0 0 200 120"><circle cx="100" cy="60" r="46" fill="none" stroke="#dcb478" stroke-width="1" opacity="0.5"/><circle cx="100" cy="60" r="30" fill="none" stroke="#dcb478" stroke-width="1" opacity="0.35"/><circle cx="100" cy="60" r="4" fill="#dcb478"/><circle cx="146" cy="60" r="2.5" fill="#f4efe2"/><circle cx="60" cy="34" r="2" fill="#f4efe2"/></svg>
+        </div>
+        <div class="artifact-body">
+          <div class="artifact-sub">Theorem Assistant</div>
+          <h3>Oracle</h3>
+          <p>An interactive proof assistant built on Lean 4, designed to suggest the next tactic in a proof search rather than complete it outright — a collaborator, not an oracle in the literal sense.</p>
+          <div class="artifact-tags"><span>LEAN</span><span>RUST</span><span>WEBASSEMBLY</span></div>
+          <a class="artifact-link" href="#">View artifact &rarr;</a>
+        </div>
+      </div>
+
+      <div class="artifact reveal">
+        <div class="artifact-cover">
+          <div class="artifact-index">III : 2</div>
+          <svg viewBox="0 0 200 120"><g stroke="#dcb478" stroke-width="1" opacity="0.6"><line x1="40" y1="40" x2="90" y2="30"/><line x1="90" y1="30" x2="150" y2="55"/><line x1="90" y1="30" x2="70" y2="85"/><line x1="150" y1="55" x2="120" y2="95"/><line x1="70" y1="85" x2="120" y2="95"/></g><g fill="#f4efe2"><circle cx="40" cy="40" r="3"/><circle cx="90" cy="30" r="3"/><circle cx="150" cy="55" r="3"/><circle cx="70" cy="85" r="3"/><circle cx="120" cy="95" r="3"/></g></svg>
+        </div>
+        <div class="artifact-body">
+          <div class="artifact-sub">Graph Visualization</div>
+          <h3>Isomorph</h3>
+          <p>A force-directed graph visualizer tuned for spectral and topological features rather than raw aesthetics — layouts that make expansion, bottlenecks, and clusters visible at a glance.</p>
+          <div class="artifact-tags"><span>PYTHON</span><span>D3.JS</span><span>NETWORKX</span></div>
+          <a class="artifact-link" href="#">View artifact &rarr;</a>
+        </div>
+      </div>
+
+      <div class="artifact reveal">
+        <div class="artifact-cover">
+          <div class="artifact-index">III : 3</div>
+          <svg viewBox="0 0 200 120"><g fill="none" stroke="#dcb478" stroke-width="1" opacity="0.55"><rect x="60" y="30" width="18" height="18"/><rect x="95" y="55" width="18" height="18"/><rect x="130" y="35" width="18" height="18"/><rect x="70" y="70" width="18" height="18"/></g><line x1="69" y1="39" x2="104" y2="64" stroke="#f4efe2" stroke-width="0.75" opacity="0.4"/><line x1="104" y1="64" x2="139" y2="44" stroke="#f4efe2" stroke-width="0.75" opacity="0.4"/></svg>
+        </div>
+        <div class="artifact-body">
+          <div class="artifact-sub">Dataset Auditing</div>
+          <h3>Lacuna</h3>
+          <p>A library for finding structural gaps in training datasets before they become blind spots in a model — flagging under-represented regions of a feature space using coverage-theoretic heuristics.</p>
+          <div class="artifact-tags"><span>PYTHON</span><span>PYTORCH</span><span>TOPOLOGY</span></div>
+          <a class="artifact-link" href="#">View artifact &rarr;</a>
+        </div>
+      </div>
+
+      <div class="artifact reveal">
+        <div class="artifact-cover">
+          <div class="artifact-index">III : 4</div>
+          <svg viewBox="0 0 200 120"><g stroke="#dcb478" opacity="0.5"><line x1="30" y1="20" x2="30" y2="100"/><line x1="30" y1="30" x2="170" y2="30"/><line x1="30" y1="50" x2="150" y2="50"/><line x1="30" y1="70" x2="160" y2="70"/><line x1="30" y1="90" x2="130" y2="90"/></g></svg>
+        </div>
+        <div class="artifact-body">
+          <div class="artifact-sub">Publishing Engine</div>
+          <h3>Palimpsest</h3>
+          <p>A LaTeX-to-web compiler that preserves theorem environments, numbering, and cross-references as first-class web elements — this very page is typeset with an early version of it.</p>
+          <div class="artifact-tags"><span>RUST</span><span>LATEX</span><span>WASM</span></div>
+          <a class="artifact-link" href="#">View artifact &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= IV. TESTIMONIA ================= -->
+<section id="testimonia" class="ruled tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Book IV &middot; Record and witness</div>
+      <h2><span class="roman">IV.</span>Testimonia</h2>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-head"><span class="tl-num">4:1</span><span class="tl-year">2026</span><span class="tl-title">Invited Talk — &ldquo;Curvature and Learning&rdquo;</span></div>
+        <p>Delivered at the Sarov Institute for Applied Mathematics, on discrete curvature as a diagnostic for generalization.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-head"><span class="tl-num">4:2</span><span class="tl-year">2025</span><span class="tl-title">Best Paper, Honorable Mention</span></div>
+        <p>Awarded at the International Conference on Learning Representations for work on invariant recovery from incomplete data.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-head"><span class="tl-num">4:3</span><span class="tl-year">2024</span><span class="tl-title">Teaching Fellow, Discrete Mathematics</span></div>
+        <p>Led recitations and rewrote the course's proof-writing curriculum around worked counterexamples.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-head"><span class="tl-num">4:4</span><span class="tl-year">2023</span><span class="tl-title">M.S., Computer Science</span></div>
+        <p>Thesis on spectral methods for hypergraph partitioning, advised in the Theory of Computation group.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-head"><span class="tl-num">4:5</span><span class="tl-year">2021</span><span class="tl-title">B.S., Mathematics, summa cum laude</span></div>
+        <p>Senior thesis on discrete analogues of Ricci curvature, the seed of the current research program.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= V. COLOPHON ================= -->
+<section id="colophon">
+  <div class="wrap">
+    <div class="colophon-mark reveal">TA</div>
+    <div class="eyebrow reveal">Book V</div>
+    <h2 class="reveal">Correspondence</h2>
+    <p class="lede reveal">For collaboration, speaking, review, or simply to argue about the right definition of a manifold — write in.</p>
+    <a class="contact-email reveal" href="mailto:theo@ashford.math">theo@ashford.math</a>
+    <div class="colophon-links reveal">
+      <a href="#">Google Scholar</a>
+      <a href="#">arXiv</a>
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+    </div>
+    <hr class="rule center" style="max-width:420px; margin:0 auto 26px;">
+    <p class="colophon-fine reveal">Set in Fraunces &amp; STIX Two Text, with numerals after the manner of LaTeX's amsthm.<br>Composed under a midnight sky, Cambridge, Massachusetts.<br>&copy; MMXXVI Theo Ashford. All theorems reserved.</p>
+  </div>
+</section>
+
+<script>
+  // ---------- constellation generator for the hero ----------
+  (function(){
+    const container = document.getElementById('heroSky');
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(svgNS, 'svg');
+    const W = 1200, H = 800;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+    container.appendChild(svg);
+
+    const count = window.innerWidth < 700 ? 34 : 60;
+    const pts = [];
+    for(let i=0;i<count;i++){
+      pts.push({
+        x: Math.random()*W,
+        y: Math.random()*H,
+        r: 1 + Math.random()*1.8,
+        bright: Math.random() < 0.12,
+        delay: Math.random()*5
+      });
+    }
+
+    // connect each point to its nearest 1-2 neighbours within a max distance
+    const maxDist = 190;
+    const edgesDrawn = new Set();
+    pts.forEach((p, i) => {
+      const distances = pts
+        .map((q, j) => ({ j, d: Math.hypot(p.x-q.x, p.y-q.y) }))
+        .filter(o => o.j !== i && o.d < maxDist)
+        .sort((a,b) => a.d - b.d)
+        .slice(0, 2);
+      distances.forEach(o => {
+        const key = [i, o.j].sort((a,b)=>a-b).join('-');
+        if(edgesDrawn.has(key)) return;
+        edgesDrawn.add(key);
+        const q = pts[o.j];
+        const line = document.createElementNS(svgNS, 'line');
+        line.setAttribute('x1', p.x); line.setAttribute('y1', p.y);
+        line.setAttribute('x2', q.x); line.setAttribute('y2', q.y);
+        line.setAttribute('class', 'edge');
+        svg.appendChild(line);
+      });
+    });
+
+    pts.forEach(p => {
+      const c = document.createElementNS(svgNS, 'circle');
+      c.setAttribute('cx', p.x); c.setAttribute('cy', p.y); c.setAttribute('r', p.bright ? p.r+1 : p.r);
+      c.setAttribute('class', 'star' + (p.bright ? ' bright' : ''));
+      c.style.animationDelay = p.delay + 's';
+      svg.appendChild(c);
+    });
+  })();
+
+  // ---------- scroll reveal ----------
+  (function(){
+    const items = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    items.forEach(el => io.observe(el));
+  })();
+</script>
+
+</body>
+</html>
