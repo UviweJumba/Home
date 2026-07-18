@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Theo Ashford — Mathematician &amp; Computer Scientist</title>
+<title>Uviwe Jumba — Mathematician &amp; Computer Scientist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500;1,9..144,600&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -36,7 +36,27 @@
 
   body{
     margin:0;
-    background:var(--midnight);
+    background-color: var(--midnight);
+    background-image:
+      radial-gradient(ellipse 900px 700px at 10% 8%,  rgba(42,23,96,0.40), transparent 60%),
+      radial-gradient(ellipse 800px 650px at 92% 14%, rgba(19,27,82,0.38), transparent 60%),
+      radial-gradient(ellipse 1000px 800px at 55% 92%, rgba(38,20,88,0.30), transparent 65%),
+      radial-gradient(1.6px 1.6px at 8% 12%,  rgba(244,239,226,0.9), transparent),
+      radial-gradient(1.2px 1.2px at 22% 38%, rgba(244,239,226,0.65), transparent),
+      radial-gradient(1.8px 1.8px at 38% 6%,  rgba(220,180,120,0.85), transparent),
+      radial-gradient(1.1px 1.1px at 51% 61%, rgba(244,239,226,0.55), transparent),
+      radial-gradient(1.4px 1.4px at 64% 21%, rgba(244,239,226,0.7), transparent),
+      radial-gradient(1.2px 1.2px at 74% 78%, rgba(220,180,120,0.75), transparent),
+      radial-gradient(1px 1px   at 83% 45%, rgba(244,239,226,0.5), transparent),
+      radial-gradient(1.5px 1.5px at 91% 66%, rgba(244,239,226,0.7), transparent),
+      radial-gradient(1.1px 1.1px at 6% 82%,  rgba(244,239,226,0.55), transparent),
+      radial-gradient(1.3px 1.3px at 30% 90%, rgba(244,239,226,0.6), transparent),
+      radial-gradient(1px 1px   at 46% 33%, rgba(244,239,226,0.45), transparent),
+      radial-gradient(1.7px 1.7px at 68% 95%, rgba(220,180,120,0.7), transparent),
+      radial-gradient(1.1px 1.1px at 96% 30%, rgba(244,239,226,0.55), transparent);
+    background-repeat: no-repeat, no-repeat, no-repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat;
+    background-size: 100% 100%, 100% 100%, 100% 100%, 340px 340px, 340px 340px, 340px 340px, 340px 340px, 340px 340px, 340px 340px, 340px 340px, 340px 340px, 340px 340px, 340px 340px, 340px 340px, 340px 340px, 340px 340px;
+    background-attachment: fixed, fixed, fixed, fixed, fixed, fixed, fixed, fixed, fixed, fixed, fixed, fixed, fixed, fixed, fixed, fixed;
     color:var(--ivory);
     font-family:var(--font-body);
     font-size:17px;
@@ -135,7 +155,9 @@
 
   .hero-veil{
     position:absolute; inset:0;
-    background:radial-gradient(ellipse at 30% 45%, rgba(12,9,33,0.15) 0%, rgba(12,9,33,0.88) 62%, var(--midnight) 100%);
+    background:
+      radial-gradient(ellipse at 30% 45%, rgba(4,3,9,0.1) 0%, rgba(4,3,9,0.72) 58%, rgba(4,3,9,0.94) 100%),
+      radial-gradient(ellipse 700px 500px at 88% 90%, rgba(42,23,96,0.35), transparent 70%);
   }
 
   .hero-content{
@@ -209,7 +231,7 @@
   .reveal.in{ opacity:1; transform:translateY(0); }
 
   /* ---------- EXORDIUM ---------- */
-  #exordium{ background:var(--midnight); }
+  #exordium{ background:rgba(4,3,9,0.32); }
   .exordium-grid{
     display:grid; grid-template-columns:1.6fr 1fr; gap:80px;
     align-items:start;
@@ -264,128 +286,99 @@
     .exordium-grid{ grid-template-columns:1fr; gap:48px; }
   }
 
-  /* ---------- THEOREMS ---------- */
-  #theorems{ background:var(--midnight-panel); }
-  .theorem{
-    border:1px solid var(--line);
-    padding:40px 44px;
-    margin-bottom:28px;
-    position:relative;
-    background:linear-gradient(180deg, rgba(244,239,226,0.02), transparent 40%);
-  }
-  .theorem::before{
-    content:"";
-    position:absolute; top:0; left:0; width:3px; height:100%;
-    background:var(--gold);
-    opacity:0.55;
-  }
-  .theorem-head{
-    display:flex; justify-content:space-between; align-items:baseline; gap:20px; flex-wrap:wrap;
-    margin-bottom:16px;
-  }
-  .theorem-head h3{
-    font-family:var(--font-body);
-    font-style:italic; font-weight:600;
-    font-size:22px; margin:0;
-    color:var(--ivory);
-  }
-  .theorem-head h3 .tnum{
-    font-family:var(--font-mono); font-style:normal; font-weight:500;
-    color:var(--gold-bright); margin-right:12px; font-size:16px;
-  }
-  .theorem-venue{
-    font-family:var(--font-mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
-    color:var(--ivory-faint); white-space:nowrap;
-  }
-  .theorem p{ color:var(--ivory-dim); margin:0 0 18px; font-size:16.5px; }
-  .theorem-foot{
-    display:flex; justify-content:space-between; align-items:center;
-  }
-  .theorem-tags{ display:flex; gap:10px; flex-wrap:wrap; }
-  .theorem-tags span{
-    font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.06em;
-    border:1px solid var(--line); padding:4px 10px; color:var(--ivory-faint);
-  }
-  .qed{ font-size:15px; color:var(--gold-bright); }
-  .theorem-link{
-    font-family:var(--font-mono); font-size:12px; text-decoration:none; color:var(--gold-bright);
-    border-bottom:1px solid transparent; padding-bottom:2px; transition:border-color .2s ease;
-  }
-  .theorem-link:hover{ border-color:var(--gold-bright); }
+  /* ---------- ARTIFACTS / VENTURES : magazine cover spreads ---------- */
+  #artifacts{ background:rgba(4,3,9,0.28); }
+  #ventures{ background:rgba(10,7,26,0.42); }
 
-  /* ---------- ARTIFACTS ---------- */
-  #artifacts{ background:var(--midnight); }
-  .artifact-grid{
-    display:grid; grid-template-columns:repeat(2, 1fr); gap:36px;
+  .spread{
+    display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px;
+    align-items:center;
   }
-  @media (max-width:820px){ .artifact-grid{ grid-template-columns:1fr; } }
+  .spread + .spread{ margin-top:110px; }
+  .spread.reverse{ grid-template-columns:1.1fr 0.9fr; }
+  .spread.reverse .spread-art{ order:2; }
+  .spread.reverse .spread-text{ order:1; }
+  @media (max-width:900px){
+    .spread, .spread.reverse{ grid-template-columns:1fr; }
+    .spread.reverse .spread-art, .spread.reverse .spread-text{ order:initial; }
+  }
 
-  .artifact{
-    border:1px solid var(--line);
-    background:var(--midnight-panel);
-    display:flex; flex-direction:column;
-    transition:border-color .3s ease, transform .3s ease;
-  }
-  .artifact:hover{ border-color:var(--line-bright); transform:translateY(-4px); }
-  .artifact-cover{
-    height:180px;
+  .spread-art{
     position:relative;
-    border-bottom:1px solid var(--line);
-    display:flex; align-items:center; justify-content:center;
-    background:
-      radial-gradient(circle at 30% 30%, rgba(217,180,120,0.10), transparent 60%),
-      linear-gradient(160deg, var(--midnight-3), var(--midnight-panel));
+    aspect-ratio: 4 / 5;
+    border:1px solid var(--line-bright);
     overflow:hidden;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
   }
-  .artifact-cover svg{ width:100%; height:100%; }
-  .artifact-index{
-    position:absolute; top:14px; left:16px;
-    font-family:var(--font-mono); font-size:11px; letter-spacing:0.1em;
-    color:var(--gold-bright);
-  }
-  .artifact-body{ padding:28px 30px 30px; display:flex; flex-direction:column; flex:1; }
-  .artifact-body h3{
-    font-family:var(--font-display); font-weight:700; text-transform:uppercase;
-    letter-spacing:0.03em; font-size:22px; margin:0 0 4px;
-  }
-  .artifact-sub{
-    font-family:var(--font-mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
-    color:var(--gold); margin-bottom:14px;
-  }
-  .artifact-body p{ color:var(--ivory-dim); font-size:15.5px; margin:0 0 20px; flex:1; }
-  .artifact-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px; }
-  .artifact-tags span{
-    font-family:var(--font-mono); font-size:10px; letter-spacing:0.05em;
-    color:var(--ivory-faint); border:1px solid var(--line); padding:3px 9px;
-  }
-  .artifact-link{
-    font-family:var(--font-mono); font-size:12px; text-decoration:none; color:var(--ivory);
-    display:inline-flex; align-items:center; gap:8px; align-self:flex-start;
-    border-bottom:1px solid var(--gold); padding-bottom:2px;
+  .spread-art svg{ width:100%; height:100%; display:block; }
+  .spread-badge{
+    position:absolute; top:20px; right:20px;
+    font-family:var(--font-mono); font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--ivory-faint); text-align:right; line-height:1.6;
+    border-right:1px solid var(--line-bright); padding-right:10px;
   }
 
-  /* ---------- TESTIMONIA ---------- */
-  #testimonia{ background:var(--midnight-panel); }
-  .timeline{ position:relative; padding-left:38px; }
-  .timeline::before{
-    content:""; position:absolute; left:5px; top:6px; bottom:6px; width:1px;
-    background:var(--line-bright);
+  .spread-text .kicker{
+    font-family:var(--font-mono); font-size:12px; letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--gold-bright); margin-bottom:16px; display:block;
   }
-  .tl-item{ position:relative; padding-bottom:38px; }
-  .tl-item:last-child{ padding-bottom:0; }
-  .tl-item::before{
-    content:""; position:absolute; left:-38px; top:5px; width:9px; height:9px; border-radius:50%;
-    background:var(--midnight-panel); border:1px solid var(--gold-bright);
+  .spread-text h3{
+    font-family:var(--font-display); font-weight:900; text-transform:uppercase;
+    font-size:clamp(32px, 4.6vw, 58px); line-height:0.98; letter-spacing:-0.01em;
+    margin:0 0 6px;
   }
-  .tl-head{ display:flex; gap:16px; align-items:baseline; flex-wrap:wrap; }
-  .tl-num{ font-family:var(--font-mono); font-size:12px; color:var(--gold); }
-  .tl-year{ font-family:var(--font-mono); font-size:13px; color:var(--gold-bright); letter-spacing:0.06em; }
-  .tl-title{ font-family:var(--font-display); font-style:italic; font-weight:600; font-size:19px; color:var(--ivory); }
-  .tl-item p{ margin:8px 0 0; color:var(--ivory-dim); font-size:15px; }
+  .spread-text .subline{
+    font-family:var(--font-body); font-style:italic; font-size:18px;
+    color:var(--gold-bright); margin:0 0 22px;
+  }
+  .spread-text p{
+    font-size:17px; color:var(--ivory-dim); margin:0 0 26px; max-width:480px;
+  }
+  .spread-tags{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:26px; }
+  .spread-tags span{
+    font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.06em;
+    border:1px solid var(--line); padding:5px 11px; color:var(--ivory-faint);
+  }
+  .spread-link{
+    font-family:var(--font-mono); font-size:13px; text-decoration:none; color:var(--ivory);
+    display:inline-flex; align-items:center; gap:8px;
+    border-bottom:1px solid var(--gold); padding-bottom:3px;
+  }
+
+  /* flagship deployment sub-card, nested inside Ventures */
+  .flagship{
+    margin-top:70px;
+    border:1px solid var(--line);
+    background:linear-gradient(135deg, rgba(19,27,82,0.35), rgba(10,7,26,0.2));
+    display:grid; grid-template-columns:200px 1fr; gap:0;
+  }
+  @media (max-width:700px){ .flagship{ grid-template-columns:1fr; } }
+  .flagship-mark{
+    display:flex; align-items:center; justify-content:center;
+    border-right:1px solid var(--line);
+    padding:30px;
+  }
+  @media (max-width:700px){ .flagship-mark{ border-right:0; border-bottom:1px solid var(--line); } }
+  .flagship-mark svg{ width:100%; max-width:150px; }
+  .flagship-body{ padding:34px 38px; }
+  .flagship-body .kicker{
+    font-family:var(--font-mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--gold); display:block; margin-bottom:10px;
+  }
+  .flagship-body h4{
+    font-family:var(--font-display); font-weight:800; font-size:26px; margin:0 0 12px;
+    letter-spacing:0.01em;
+  }
+  .flagship-body p{ color:var(--ivory-dim); font-size:15.5px; margin:0 0 18px; max-width:520px; }
+  .flagship-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
+  .flagship-tags span{
+    font-family:var(--font-mono); font-size:9.5px; letter-spacing:0.05em;
+    color:var(--ivory-faint); border:1px solid var(--line); padding:3px 8px;
+  }
 
   /* ---------- COLOPHON ---------- */
   #colophon{
-    background:linear-gradient(180deg, var(--midnight-panel), var(--midnight) 60%);
+    background:linear-gradient(180deg, rgba(10,7,26,0.5), rgba(4,3,9,0.85) 60%);
     text-align:center;
     padding-bottom:90px;
   }
@@ -436,15 +429,14 @@
 <nav>
   <div class="nav-inner">
     <a class="sigil" href="#hero">
-      <span class="sigil-ring">TA</span>
-      THEO ASHFORD
+      <span class="sigil-ring">UJ</span>
+      UVIWE JUMBA
     </a>
     <ul class="nav-links">
       <li><a href="#exordium"><span>I</span>Exordium</a></li>
-      <li><a href="#theorems"><span>II</span>Theorems</a></li>
-      <li><a href="#artifacts"><span>III</span>Artifacts</a></li>
-      <li><a href="#testimonia"><span>IV</span>Testimonia</a></li>
-      <li><a href="#colophon"><span>V</span>Colophon</a></li>
+      <li><a href="#artifacts"><span>II</span>Artifacts</a></li>
+      <li><a href="#ventures"><span>III</span>Ventures</a></li>
+      <li><a href="#colophon"><span>IV</span>Colophon</a></li>
     </ul>
   </div>
 </nav>
@@ -455,9 +447,9 @@
   <div class="hero-veil"></div>
   <div class="hero-content">
     <div class="eyebrow">Collected Works &middot; Volume I</div>
-    <h1>THEO<br>ASHFORD<em>Mathematician &amp; Computer Scientist</em></h1>
-    <p class="hero-thesis">On graphs, proofs, and the machines that learn them — a working record of theorems, artifacts, and the spaces between.</p>
-    <div class="hero-tags">GRAPH THEORY <span>&middot;</span> COMPUTATIONAL GEOMETRY <span>&middot;</span> MACHINE LEARNING THEORY</div>
+    <h1>UVIWE<br>JUMBA<em>Mathematician &amp; Computer Scientist</em></h1>
+    <p class="hero-thesis">On optimization, control, and the systems that learn to steer themselves — a working record of ideas, projects, and ventures.</p>
+    <div class="hero-tags">OPTIMIZATION &amp; CONTROL <span>&middot;</span> MACHINE LEARNING &amp; AI <span>&middot;</span> APPLIED MATHEMATICS</div>
   </div>
   <div class="scroll-cue"><span class="arrow">&#8595;</span> I : 1</div>
 </header>
@@ -471,205 +463,208 @@
     </div>
     <div class="exordium-grid">
       <div class="exordium-copy reveal">
-        <p class="incipit"><span class="drop">I</span>n the beginning was the proof, and the proof was with logic, and the proof was sound. Without it nothing that compiles was made.</p>
-        <p>Theo Ashford is a mathematician and computer scientist working where graph theory, computational geometry, and machine learning theory meet — the territory where structure has to survive translation: from proof to program, from continuous to discrete, from geometry to code.</p>
-        <p>The work here follows one long-standing question: which properties of a system are the ones that persist no matter how you choose to represent it? Recent efforts have looked for answers in spectral graph methods, in discrete curvature, and in what neural networks keep and discard when they compress the world into weights.</p>
-        <p>Before any of that, there was a proof set badly in a first-year notebook, and a professor who circled it in red — not because it was wrong, but because it could be shorter. That instinct, for the shortest true path between assumption and conclusion, has not gone away since.</p>
+        <p class="incipit"><span class="drop">I</span>n the beginning was the problem, and the problem was ill-posed, and the problem was constrained. Without a good objective function, nothing worth optimizing was made.</p>
+        <p>Uviwe Jumba is a mathematician and computer scientist working at the intersection of optimization, control, and machine learning — drawn to the question of how a system, given a goal and a set of limits, finds its way to the best available answer.</p>
+        <p>A graduate of Rhodes University, where he read for a BSc in Applied Mathematics and Computer Science, Uviwe's interest runs from the classical machinery of optimization and control theory through to the broader, faster-moving world of machine learning and artificial intelligence — with a growing focus on where the two meet: systems that don't just predict, but decide.</p>
+        <p>Outside the theory, that same instinct — take a hard, constrained problem and build something that actually works — is what led to founding Nabla Dynamics, and to the projects gathered here.</p>
       </div>
       <div class="verses reveal">
         <div class="verse">
           <div class="vnum">1:1</div>
-          <div class="vtext"><span class="label">Field</span><span class="val">Graph Theory &amp; Machine Learning</span></div>
+          <div class="vtext"><span class="label">Fields</span><span class="val">Optimization &amp; Control</span></div>
         </div>
         <div class="verse">
           <div class="vnum">1:2</div>
-          <div class="vtext"><span class="label">Position</span><span class="val">Doctoral Fellow, Dept. of Mathematics &amp; Computer Science</span></div>
+          <div class="vtext"><span class="label">Also interested in</span><span class="val">Machine Learning &amp; Artificial Intelligence</span></div>
         </div>
         <div class="verse">
           <div class="vnum">1:3</div>
-          <div class="vtext"><span class="label">Focus</span><span class="val">Spectral methods, computational topology, learning theory</span></div>
+          <div class="vtext"><span class="label">Education</span><span class="val">BSc, Applied Mathematics &amp; Computer Science — Rhodes University, Makhanda</span></div>
         </div>
         <div class="verse">
           <div class="vnum">1:4</div>
-          <div class="vtext"><span class="label">Instruments</span><span class="val">Python, Rust, Lean, LaTeX</span></div>
+          <div class="vtext"><span class="label">Also</span><span class="val">Founder &amp; CEO, Nabla Dynamics (Pty) Ltd</span></div>
         </div>
         <div class="verse">
           <div class="vnum">1:5</div>
-          <div class="vtext"><span class="label">Based</span><span class="val">Cambridge, MA</span></div>
+          <div class="vtext"><span class="label">Based</span><span class="val">East London, Eastern Cape, South Africa</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= II. THEOREMS ================= -->
-<section id="theorems" class="ruled">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">Book II &middot; Publications, stated formally</div>
-      <h2><span class="roman">II.</span>Theorems</h2>
-    </div>
-
-    <div class="theorem reveal">
-      <div class="theorem-head">
-        <h3><span class="tnum">2.1</span>On Spectral Bounds for Random Hypergraphs</h3>
-        <div class="theorem-venue">arXiv &middot; 2026</div>
-      </div>
-      <p>We establish tight concentration bounds for the spectral gap of sparse random hypergraphs under a generalized configuration model, extending prior results from graphs to higher-order structures and giving a cleaner route to expansion guarantees used elsewhere in this body of work.</p>
-      <div class="theorem-foot">
-        <div class="theorem-tags"><span>SPECTRAL GRAPH THEORY</span><span>RANDOM STRUCTURES</span></div>
-        <a class="theorem-link" href="#">Read the proof &rarr;</a>
-      </div>
-      <span class="qed" style="position:absolute; bottom:20px; right:24px;">&#8718;</span>
-    </div>
-
-    <div class="theorem reveal">
-      <div class="theorem-head">
-        <h3><span class="tnum">2.2</span>Learning Invariants from Incomplete Data</h3>
-        <div class="theorem-venue">NeurIPS Workshop &middot; 2025</div>
-      </div>
-      <p>A method for recovering approximate symmetry groups from partially observed data, with sample-complexity guarantees. Applied to molecular conformation datasets, the approach recovers known invariances without being told to look for them.</p>
-      <div class="theorem-foot">
-        <div class="theorem-tags"><span>REPRESENTATION LEARNING</span><span>SYMMETRY</span></div>
-        <a class="theorem-link" href="#">Read the proof &rarr;</a>
-      </div>
-      <span class="qed" style="position:absolute; bottom:20px; right:24px;">&#8718;</span>
-    </div>
-
-    <div class="theorem reveal">
-      <div class="theorem-head">
-        <h3><span class="tnum">2.3</span>A Discrete Curvature for Neural Manifolds</h3>
-        <div class="theorem-venue">In submission &middot; 2026</div>
-      </div>
-      <p>We define a Ricci-inspired curvature on the activation graphs of trained networks and show it correlates with generalization gap across three architecture families — a discrete handle on a question usually asked in continuous terms.</p>
-      <div class="theorem-foot">
-        <div class="theorem-tags"><span>GEOMETRIC DEEP LEARNING</span><span>GENERALIZATION</span></div>
-        <a class="theorem-link" href="#">Read the proof &rarr;</a>
-      </div>
-      <span class="qed" style="position:absolute; bottom:20px; right:24px;">&#8718;</span>
-    </div>
-  </div>
-</section>
-
-<!-- ================= III. ARTIFACTS ================= -->
+<!-- ================= II. ARTIFACTS ================= -->
 <section id="artifacts" class="ruled">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow">Book III &middot; Built things</div>
-      <h2><span class="roman">III.</span>Artifacts</h2>
+      <div class="eyebrow">Book II &middot; Open Projects</div>
+      <h2><span class="roman">II.</span>Artifacts</h2>
     </div>
 
-    <div class="artifact-grid">
-
-      <div class="artifact reveal">
-        <div class="artifact-cover">
-          <div class="artifact-index">III : 1</div>
-          <svg viewBox="0 0 200 120"><circle cx="100" cy="60" r="46" fill="none" stroke="#dcb478" stroke-width="1" opacity="0.5"/><circle cx="100" cy="60" r="30" fill="none" stroke="#dcb478" stroke-width="1" opacity="0.35"/><circle cx="100" cy="60" r="4" fill="#dcb478"/><circle cx="146" cy="60" r="2.5" fill="#f4efe2"/><circle cx="60" cy="34" r="2" fill="#f4efe2"/></svg>
-        </div>
-        <div class="artifact-body">
-          <div class="artifact-sub">Theorem Assistant</div>
-          <h3>Oracle</h3>
-          <p>An interactive proof assistant built on Lean 4, designed to suggest the next tactic in a proof search rather than complete it outright — a collaborator, not an oracle in the literal sense.</p>
-          <div class="artifact-tags"><span>LEAN</span><span>RUST</span><span>WEBASSEMBLY</span></div>
-          <a class="artifact-link" href="#">View artifact &rarr;</a>
-        </div>
+    <div class="spread reveal">
+      <div class="spread-art">
+        <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="olyBg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#1f1a45"/>
+              <stop offset="100%" stop-color="#2a1760"/>
+            </linearGradient>
+            <pattern id="olyDots" width="14" height="14" patternUnits="userSpaceOnUse">
+              <circle cx="1.2" cy="1.2" r="1.2" fill="#f4efe2" opacity="0.08"/>
+            </pattern>
+          </defs>
+          <rect width="400" height="500" fill="url(#olyBg)"/>
+          <rect width="400" height="500" fill="url(#olyDots)"/>
+          <g stroke="#dcb478" stroke-width="1" opacity="0.35">
+            <line x1="200" y1="230" x2="0" y2="0"/><line x1="200" y1="230" x2="80" y2="0"/>
+            <line x1="200" y1="230" x2="160" y2="0"/><line x1="200" y1="230" x2="240" y2="0"/>
+            <line x1="200" y1="230" x2="320" y2="0"/><line x1="200" y1="230" x2="400" y2="0"/>
+            <line x1="200" y1="230" x2="0" y2="500"/><line x1="200" y1="230" x2="400" y2="500"/>
+            <line x1="200" y1="230" x2="0" y2="230"/><line x1="200" y1="230" x2="400" y2="230"/>
+          </g>
+          <circle cx="200" cy="230" r="150" fill="none" stroke="#b9904f" stroke-width="1" opacity="0.4"/>
+          <circle cx="200" cy="230" r="112" fill="none" stroke="#b9904f" stroke-width="1" opacity="0.3"/>
+          <g fill="none" stroke="#dcb478" stroke-width="2.2" opacity="0.85">
+            <path d="M200,296 Q262,300 300,230 Q305,188 244,154"/>
+            <path d="M200,296 Q138,300 100,230 Q95,188 156,154"/>
+          </g>
+          <g fill="#dcb478" opacity="0.9">
+            <ellipse cx="239" cy="298" rx="9" ry="4.5" transform="rotate(-30 239 298)"/>
+            <ellipse cx="280" cy="276" rx="8.5" ry="4.3" transform="rotate(-55 280 276)"/>
+            <ellipse cx="300" cy="230" rx="8" ry="4" transform="rotate(-90 300 230)"/>
+            <ellipse cx="283" cy="182" rx="7" ry="3.5" transform="rotate(-125 283 182)"/>
+            <ellipse cx="244" cy="154" rx="6" ry="3" transform="rotate(-150 244 154)"/>
+            <ellipse cx="161" cy="298" rx="9" ry="4.5" transform="rotate(30 161 298)"/>
+            <ellipse cx="120" cy="276" rx="8.5" ry="4.3" transform="rotate(55 120 276)"/>
+            <ellipse cx="100" cy="230" rx="8" ry="4" transform="rotate(90 100 230)"/>
+            <ellipse cx="117" cy="182" rx="7" ry="3.5" transform="rotate(125 117 182)"/>
+            <ellipse cx="156" cy="154" rx="6" ry="3" transform="rotate(150 156 154)"/>
+            <ellipse cx="200" cy="299" rx="6" ry="5"/>
+          </g>
+          <circle cx="200" cy="230" r="62" fill="#161235" stroke="#dcb478" stroke-width="1.5"/>
+          <text x="200" y="242" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="700" font-size="46" fill="#dcb478">&#931;</text>
+          <text x="200" y="440" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="3" fill="#c9c2ac" opacity="0.8">SOUTH AFRICAN MATHEMATICS OLYMPIAD</text>
+        </svg>
+        <div class="spread-badge">PROJECT<br>NO. 01<br>EST. 2026</div>
       </div>
-
-      <div class="artifact reveal">
-        <div class="artifact-cover">
-          <div class="artifact-index">III : 2</div>
-          <svg viewBox="0 0 200 120"><g stroke="#dcb478" stroke-width="1" opacity="0.6"><line x1="40" y1="40" x2="90" y2="30"/><line x1="90" y1="30" x2="150" y2="55"/><line x1="90" y1="30" x2="70" y2="85"/><line x1="150" y1="55" x2="120" y2="95"/><line x1="70" y1="85" x2="120" y2="95"/></g><g fill="#f4efe2"><circle cx="40" cy="40" r="3"/><circle cx="90" cy="30" r="3"/><circle cx="150" cy="55" r="3"/><circle cx="70" cy="85" r="3"/><circle cx="120" cy="95" r="3"/></g></svg>
-        </div>
-        <div class="artifact-body">
-          <div class="artifact-sub">Graph Visualization</div>
-          <h3>Isomorph</h3>
-          <p>A force-directed graph visualizer tuned for spectral and topological features rather than raw aesthetics — layouts that make expansion, bottlenecks, and clusters visible at a glance.</p>
-          <div class="artifact-tags"><span>PYTHON</span><span>D3.JS</span><span>NETWORKX</span></div>
-          <a class="artifact-link" href="#">View artifact &rarr;</a>
-        </div>
+      <div class="spread-text">
+        <span class="kicker">Open Archive &middot; Est. 2026</span>
+        <h3>The Olympiad Archive</h3>
+        <p class="subline">A library of South African Olympiad solutions</p>
+        <p>Every problem the South African Mathematical Olympiad has set, worked from first principles and typeset the way a proof deserves. A growing, open archive for anyone still awake at midnight with a blank page and a hard problem — the way its author once was.</p>
+        <div class="spread-tags"><span>SOUTH AFRICAN MATHS OLYMPIAD</span><span>OPEN ARCHIVE</span><span>LATEX</span><span>EDUCATION</span></div>
+        <a class="spread-link" href="#">Enter the archive &rarr;</a>
       </div>
-
-      <div class="artifact reveal">
-        <div class="artifact-cover">
-          <div class="artifact-index">III : 3</div>
-          <svg viewBox="0 0 200 120"><g fill="none" stroke="#dcb478" stroke-width="1" opacity="0.55"><rect x="60" y="30" width="18" height="18"/><rect x="95" y="55" width="18" height="18"/><rect x="130" y="35" width="18" height="18"/><rect x="70" y="70" width="18" height="18"/></g><line x1="69" y1="39" x2="104" y2="64" stroke="#f4efe2" stroke-width="0.75" opacity="0.4"/><line x1="104" y1="64" x2="139" y2="44" stroke="#f4efe2" stroke-width="0.75" opacity="0.4"/></svg>
-        </div>
-        <div class="artifact-body">
-          <div class="artifact-sub">Dataset Auditing</div>
-          <h3>Lacuna</h3>
-          <p>A library for finding structural gaps in training datasets before they become blind spots in a model — flagging under-represented regions of a feature space using coverage-theoretic heuristics.</p>
-          <div class="artifact-tags"><span>PYTHON</span><span>PYTORCH</span><span>TOPOLOGY</span></div>
-          <a class="artifact-link" href="#">View artifact &rarr;</a>
-        </div>
-      </div>
-
-      <div class="artifact reveal">
-        <div class="artifact-cover">
-          <div class="artifact-index">III : 4</div>
-          <svg viewBox="0 0 200 120"><g stroke="#dcb478" opacity="0.5"><line x1="30" y1="20" x2="30" y2="100"/><line x1="30" y1="30" x2="170" y2="30"/><line x1="30" y1="50" x2="150" y2="50"/><line x1="30" y1="70" x2="160" y2="70"/><line x1="30" y1="90" x2="130" y2="90"/></g></svg>
-        </div>
-        <div class="artifact-body">
-          <div class="artifact-sub">Publishing Engine</div>
-          <h3>Palimpsest</h3>
-          <p>A LaTeX-to-web compiler that preserves theorem environments, numbering, and cross-references as first-class web elements — this very page is typeset with an early version of it.</p>
-          <div class="artifact-tags"><span>RUST</span><span>LATEX</span><span>WASM</span></div>
-          <a class="artifact-link" href="#">View artifact &rarr;</a>
-        </div>
-      </div>
-
     </div>
+
   </div>
 </section>
 
-<!-- ================= IV. TESTIMONIA ================= -->
-<section id="testimonia" class="ruled tight">
+<!-- ================= III. VENTURES ================= -->
+<section id="ventures" class="ruled">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow">Book IV &middot; Record and witness</div>
-      <h2><span class="roman">IV.</span>Testimonia</h2>
+      <div class="eyebrow">Book III &middot; Under My Name</div>
+      <h2><span class="roman">III.</span>Ventures</h2>
     </div>
 
-    <div class="timeline reveal">
-      <div class="tl-item">
-        <div class="tl-head"><span class="tl-num">4:1</span><span class="tl-year">2026</span><span class="tl-title">Invited Talk — &ldquo;Curvature and Learning&rdquo;</span></div>
-        <p>Delivered at the Sarov Institute for Applied Mathematics, on discrete curvature as a diagnostic for generalization.</p>
+    <div class="spread reverse reveal">
+      <div class="spread-art">
+        <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="nabBg" x1="1" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#131b52"/>
+              <stop offset="100%" stop-color="#1f1a45"/>
+            </linearGradient>
+            <pattern id="nabDots" width="14" height="14" patternUnits="userSpaceOnUse">
+              <circle cx="1.2" cy="1.2" r="1.2" fill="#f4efe2" opacity="0.08"/>
+            </pattern>
+          </defs>
+          <rect width="400" height="500" fill="url(#nabBg)"/>
+          <rect width="400" height="500" fill="url(#nabDots)"/>
+          <g stroke="#dcb478" stroke-width="1" opacity="0.3">
+            <line x1="200" y1="230" x2="200" y2="0"/><line x1="200" y1="230" x2="0" y2="80"/>
+            <line x1="200" y1="230" x2="400" y2="80"/><line x1="200" y1="230" x2="0" y2="400"/>
+            <line x1="200" y1="230" x2="400" y2="400"/><line x1="200" y1="230" x2="200" y2="500"/>
+          </g>
+          <circle cx="200" cy="230" r="150" fill="none" stroke="#b9904f" stroke-width="1" opacity="0.4"/>
+          <circle cx="200" cy="230" r="112" fill="none" stroke="#b9904f" stroke-width="1" opacity="0.28"/>
+          <g stroke="#dcb478" stroke-width="1" opacity="0.55">
+            <line x1="200" y1="230" x2="90" y2="150"/>
+            <line x1="200" y1="230" x2="310" y2="150"/>
+            <line x1="200" y1="230" x2="90" y2="320"/>
+            <line x1="200" y1="230" x2="310" y2="320"/>
+          </g>
+          <g>
+            <circle cx="90" cy="150" r="16" fill="#161235" stroke="#dcb478" stroke-width="1.2"/>
+            <text x="90" y="155" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#dcb478">WA</text>
+            <circle cx="310" cy="150" r="16" fill="#161235" stroke="#dcb478" stroke-width="1.2"/>
+            <text x="310" y="155" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#dcb478">IG</text>
+            <circle cx="90" cy="320" r="16" fill="#161235" stroke="#dcb478" stroke-width="1.2"/>
+            <text x="90" y="325" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#dcb478">FB</text>
+            <circle cx="310" cy="320" r="16" fill="#161235" stroke="#dcb478" stroke-width="1.2"/>
+            <text x="310" y="325" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#dcb478">TT</text>
+          </g>
+          <circle cx="200" cy="230" r="58" fill="#161235" stroke="#dcb478" stroke-width="1.5"/>
+          <path d="M172,208 L228,208 L200,257 Z" fill="none" stroke="#dcb478" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+          <text x="200" y="440" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="3" fill="#c9c2ac" opacity="0.8">NUMERICAL &amp; COMPUTATIONAL ENGINES</text>
+        </svg>
+        <div class="spread-badge">VENTURE<br>NO. 01<br>FOUNDED 2026</div>
       </div>
-      <div class="tl-item">
-        <div class="tl-head"><span class="tl-num">4:2</span><span class="tl-year">2025</span><span class="tl-title">Best Paper, Honorable Mention</span></div>
-        <p>Awarded at the International Conference on Learning Representations for work on invariant recovery from incomplete data.</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-head"><span class="tl-num">4:3</span><span class="tl-year">2024</span><span class="tl-title">Teaching Fellow, Discrete Mathematics</span></div>
-        <p>Led recitations and rewrote the course's proof-writing curriculum around worked counterexamples.</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-head"><span class="tl-num">4:4</span><span class="tl-year">2023</span><span class="tl-title">M.S., Computer Science</span></div>
-        <p>Thesis on spectral methods for hypergraph partitioning, advised in the Theory of Computation group.</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-head"><span class="tl-num">4:5</span><span class="tl-year">2021</span><span class="tl-title">B.S., Mathematics, summa cum laude</span></div>
-        <p>Senior thesis on discrete analogues of Ricci curvature, the seed of the current research program.</p>
+      <div class="spread-text">
+        <span class="kicker">Nabla Dynamics (Pty) Ltd &middot; East London, Eastern Cape</span>
+        <h3>Nabla Dynamics</h3>
+        <p class="subline">Numerical &amp; computational engines</p>
+        <p>Nabla Dynamics builds sophisticated numerical and computational engines designed to solve complex, real-world problems across diverse domains — infrastructure engineered to disappear into the products it powers.</p>
+        <div class="spread-tags"><span>NUMERICAL COMPUTING</span><span>SOFTWARE ENGINEERING</span><span>APPLIED MATHEMATICS</span></div>
+        <a class="spread-link" href="https://nabla.uvwe.online">Visit nabla.uvwe.online &rarr;</a>
       </div>
     </div>
+
+    <div class="flagship reveal">
+      <div class="flagship-mark">
+        <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="75" cy="75" r="70" fill="none" stroke="#b9904f" stroke-width="1" opacity="0.35"/>
+          <circle cx="75" cy="75" r="14" fill="none" stroke="#dcb478" stroke-width="1.2"/>
+          <g stroke="#dcb478" stroke-width="1" opacity="0.6">
+            <line x1="75" y1="75" x2="30" y2="40"/>
+            <line x1="75" y1="75" x2="120" y2="40"/>
+            <line x1="75" y1="75" x2="30" y2="110"/>
+            <line x1="75" y1="75" x2="120" y2="110"/>
+          </g>
+          <g fill="#161235" stroke="#dcb478" stroke-width="1">
+            <circle cx="30" cy="40" r="9"/><circle cx="120" cy="40" r="9"/>
+            <circle cx="30" cy="110" r="9"/><circle cx="120" cy="110" r="9"/>
+          </g>
+        </svg>
+      </div>
+      <div class="flagship-body">
+        <span class="kicker">First Product</span>
+        <h4>ChatThru</h4>
+        <p>A powerful, scalable webhook-based platform for multi-tenant chat infrastructure in digital storefronts — routing conversations across WhatsApp, Instagram, Facebook, and TikTok into a single engine, so a business can sell inside a conversation exactly as it would across a counter.</p>
+        <div class="flagship-tags"><span>WHATSAPP</span><span>INSTAGRAM</span><span>FACEBOOK</span><span>TIKTOK</span><span>WEBHOOKS</span><span>MULTI-TENANT</span></div>
+        <a class="spread-link" href="https://nabla.uvwe.online">See how it routes &rarr;</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- ================= V. COLOPHON ================= -->
+<!-- ================= IV. COLOPHON ================= -->
 <section id="colophon">
   <div class="wrap">
-    <div class="colophon-mark reveal">TA</div>
-    <div class="eyebrow reveal">Book V</div>
+    <div class="colophon-mark reveal">UJ</div>
+    <div class="eyebrow reveal">Book IV</div>
     <h2 class="reveal">Correspondence</h2>
-    <p class="lede reveal">For collaboration, speaking, review, or simply to argue about the right definition of a manifold — write in.</p>
-    <a class="contact-email reveal" href="mailto:theo@ashford.math">theo@ashford.math</a>
+    <p class="lede reveal">For collaboration, opportunities, or a conversation about optimization, control, or what Nabla Dynamics is building — write in.</p>
+    <a class="contact-email reveal" href="mailto:uviwe@uvwe.online">uviwe@uvwe.online</a>
     <div class="colophon-links reveal">
-      <a href="#">Google Scholar</a>
-      <a href="#">arXiv</a>
-      <a href="#">GitHub</a>
-      <a href="#">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/uviwe-jumba-63505a19b">LinkedIn</a>
+      <a href="https://nabla.uvwe.online">Nabla Dynamics</a>
     </div>
     <hr class="rule center" style="max-width:420px; margin:0 auto 26px;">
-    <p class="colophon-fine reveal">Set in Fraunces &amp; STIX Two Text, with numerals after the manner of LaTeX's amsthm.<br>Composed under a midnight sky, Cambridge, Massachusetts.<br>&copy; MMXXVI Theo Ashford. All theorems reserved.</p>
+    <p class="colophon-fine reveal">Set in Fraunces &amp; STIX Two Text, with numerals after the manner of LaTeX's amsthm.<br>Composed under a midnight sky, East London, Eastern Cape, South Africa.<br>&copy; MMXXVI Uviwe Jumba. Nabla Dynamics (Pty) Ltd. All rights reserved.</p>
   </div>
 </section>
 
